@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info yaratish</title>
+</head>
+<body>
+    <h1>Info yaratish</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="phone">Telefon:</label>
+        <input type="text" name="phone" required><br>
+        
+        <label for="address">Manzil:</label>
+        <input type="text" name="address" required><br>
+        
+        <label for="copyright">Mualliflik huquqi:</label>
+        <input type="text" name="copyright" required><br>
+        
+        <label for="facebook_url">Facebook URL:</label>
+        <input type="url" name="facebook_url"><br>
+        
+        <label for="twitter_url">Twitter URL:</label>
+        <input type="url" name="twitter_url"><br>
+        
+        <label for="linkedin_url">LinkedIn URL:</label>
+        <input type="url" name="linkedin_url"><br>
+        
+        <button type="submit">Yaratish</button>
+    </form>
+    <a href="{% url 'listInfo' %}">Ro'yxatga qaytish</a>
+</body>
+</html>

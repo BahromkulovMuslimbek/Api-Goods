@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card-img-top {
+      height: 200px; /* Set a fixed height for images */
+      object-fit: cover; /* Ensure images cover the area */
+    }
+    .card {
+      border: none; /* Remove default border */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow */
+      transition: transform 0.2s; /* Smooth zoom effect */
+    }
+    .card:hover {
+      transform: scale(1.05); /* Zoom effect on hover */
+    }
+    .card-body {
+      text-align: center; /* Center-align text */
+    }
+    .card-title {
+      font-size: 1.25rem; /* Larger font size */
+      margin-bottom: 0.75rem; /* Space below title */
+    }
+    .card-text {
+      font-size: 1rem; /* Set font size for text */
+      color: #555; /* Dark grey text color */
+    }
+    .container {
+      margin-top: 30px; /* Space at the top */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4 text-center">Wishlist</h1>
+    <div class="row">
+      {% for wish, data in combined %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+         
+          <img src="{{ data.img.url }}" class="card-img-top" alt="{{ wish.product.name }}">
+        
+          <div class="card-body">
+            <h5 class="card-title">{{ wish.product..name }}</h5>
+            <p class="card-text">Price: {{ wish.product.price }}</p>
+            <p class="card-text">{{ wish.product.detail }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (Popper.js and jQuery) CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

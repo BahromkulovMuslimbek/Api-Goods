@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner yaratish</title>
+</head>
+<body>
+    <h1>Banner yaratish</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Sarlavha:</label>
+        <input type="text" name="title" required><br>
+        
+        <label for="sub_title">Qo'shimcha sarlavha:</label>
+        <input type="text" name="sub_title"><br>
+        
+        <label for="img">Rasm:</label>
+        <input type="file" name="img" required><br>
+        
+        <label for="is_active">Faolmi:</label>
+        <input type="checkbox" name="is_active" checked><br>
+        
+        <button type="submit">Yaratish</button>
+    </form>
+    <a href="{% url 'listBanner' %}">Ro'yxatga qaytish</a>
+</body>
+</html>

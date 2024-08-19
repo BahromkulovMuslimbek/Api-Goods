@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/productList.css' %}">
+</head>
+<body>
+    <a href="{% url 'createProduct' %}">create</a>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>category</th>
+            <th>name</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for product in queryset %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{product.category.name}}</td>
+            <td>{{product.name}}</td>
+            <td><a href="{% url 'detailProduct' product.id %}">detail</a></td>
+            <td><a href="{% url 'updateProduct' product.id %}">update</a></td>
+            <td><a href="{% url 'deleteProduct' product.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+

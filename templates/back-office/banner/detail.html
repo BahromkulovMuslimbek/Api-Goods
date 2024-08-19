@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner tafsilotlari</title>
+</head>
+<body>
+    <h1>Banner tafsilotlari</h1>
+    <p><strong>Sarlavha:</strong> {{ banner.title }}</p>
+    <p><strong>Qo'shimcha sarlavha:</strong> {{ banner.sub_title }}</p>
+    <p><strong>Faolmi:</strong> {{ banner.is_active }}</p>
+    <img src="{{ banner.img.url }}" alt="{{ banner.title }}" style="max-width: 400px;"><br>
+    <a href="{% url 'updateBanner' banner.id %}">Tahrirlash</a>
+    <a href="{% url 'listBanner' %}">Ro'yxatga qaytish</a>
+</body>
+</html>

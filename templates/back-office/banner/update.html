@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bannerni tahrirlash</title>
+</head>
+<body>
+    <h1>Bannerni tahrirlash</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Sarlavha:</label>
+        <input type="text" name="title" value="{{ banner.title }}" required><br>
+        
+        <label for="sub_title">Qo'shimcha sarlavha:</label>
+        <input type="text" name="sub_title" value="{{ banner.sub_title }}"><br>
+        
+        <label for="img">Rasm:</label>
+        <input type="file" name="img"><br>
+        <img src="{{ banner.img.url }}" alt="{{ banner.title }}" style="max-width: 200px;"><br>
+        
+        <label for="is_active">Faolmi:</label>
+        <input type="checkbox" name="is_active" {% if banner.is_active %}checked{% endif %}><br>
+        
+        <button type="submit">Saqlash</button>
+    </form>
+    <a href="{% url 'listBanner' %}">Ro'yxatga qaytish</a>
+</body>
+</html>

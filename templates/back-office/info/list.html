@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info ro'yxati</title>
+</head>
+<body>
+    <h1>Info ro'yxati</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Telefon</th>
+            <th>Manzil</th>
+            <th>Mualliflik huquqi</th>
+            <th>Amallar</th>
+        </tr>
+        {% for info in queryset %}
+        <tr>
+            <td>{{ info.id }}</td>
+            <td>{{ info.phone }}</td>
+            <td>{{ info.address }}</td>
+            <td>{{ info.copyright }}</td>
+            <td>
+                <a href="{% url 'detailInfo' info.id %}">Ko'rish</a>
+                <a href="{% url 'updateInfo' info.id %}">Tahrirlash</a>
+                <a href="{% url 'deleteInfo' info.id %}">O'chirish</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'createInfo' %}">Yangi Info yaratish</a>
+</body>
+</html>

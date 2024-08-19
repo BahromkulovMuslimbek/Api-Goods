@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info tafsilotlari</title>
+</head>
+<body>
+    <h1>Info tafsilotlari</h1>
+    <p><strong>Telefon:</strong> {{ info.phone }}</p>
+    <p><strong>Manzil:</strong> {{ info.address }}</p>
+    <p><strong>Mualliflik huquqi:</strong> {{ info.copyright }}</p>
+    <p><strong>Facebook URL:</strong> <a href="{{ info.facebook_url }}">{{ info.facebook_url }}</a></p>
+    <p><strong>Twitter URL:</strong> <a href="{{ info.twitter_url }}">{{ info.twitter_url }}</a></p>
+    <p><strong>LinkedIn URL:</strong> <a href="{{ info.linkedin_url }}">{{ info.linkedin_url }}</a></p>
+    <a href="{% url 'updateInfo' info.id %}">Tahrirlash</a>
+    <a href="{% url 'listInfo' %}">Ro'yxatga qaytish</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bannerlar ro'yxati</title>
+</head>
+<body>
+    <h1>Bannerlar ro'yxati</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Sarlavha</th>
+            <th>Qo'shimcha sarlavha</th>
+            <th>Rasm</th>
+            <th>Faolmi</th>
+            <th>Amallar</th>
+        </tr>
+        {% for banner in queryset %}
+        <tr>
+            <td>{{ banner.id }}</td>
+            <td>{{ banner.title }}</td>
+            <td>{{ banner.sub_title }}</td>
+            <td><img src="{{ banner.img.url }}" alt="{{ banner.title }}" style="max-width: 100px;"></td>
+            <td>{{ banner.is_active }}</td>
+            <td>
+                <a href="{% url 'detailBanner' banner.id %}">Ko'rish</a>
+                <a href="{% url 'updateBanner' banner.id %}">Tahrirlash</a>
+                <a href="{% url 'deleteBanner' banner.id %}">O'chirish</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'createBanner' %}">Yangi banner yaratish</a>
+</body>
+</html>
