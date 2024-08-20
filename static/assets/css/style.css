@@ -10027,6 +10027,17 @@ table.variations .reset_variations {
   font-size: 14px;
 }
 
+.superlink {
+  background-color: #ffff;
+  border: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.superlink .fal {
+  font-size: 24px;
+}
+
 table.woocommerce-grouped-product-list.group_table {
   border-collapse: collapse;
   margin-bottom: 15px;

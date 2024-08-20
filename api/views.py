@@ -10,6 +10,11 @@ from .serializers import ProductSerializer, CategorySerializer, UserSerializer
 
 
 
+class CategoryCreateAPIView(generics.CreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
 class CategoryListAPIView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -18,6 +23,21 @@ class CategoryListAPIView(generics.ListAPIView):
 class CategoryDetailAPIView(generics.RetrieveAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+
+class CategoryDeleteAPIView(generics.DestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    
+
+class ProductCreateAPIView(generics.CreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductDeleteAPIView(generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 
 class ProductListAPIView(generics.ListAPIView):
@@ -49,3 +69,8 @@ def login_view(request):
         login(request, user)
         return Response({'token': token.key, 'message': "Siz tizimga muvaffaqiyatli kirdingiz"}, status=status.HTTP_200_OK)
     return Response({'error': "Kirish xatoligi", 'message': "Foydalanuvchi nomi yoki parol noto'g'ri"}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def logout_view(request):
+    request.auth.delete()
+    return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)
