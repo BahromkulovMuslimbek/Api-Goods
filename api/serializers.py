@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from goods.models import Product, Category
+from goods.models import Product, Category, Cart, Banner, ProductImg, WishList
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -12,6 +12,12 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
+        fields = '__all__'
+
+
+class ProductImgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductImg
         fields = '__all__'
 
 
@@ -29,3 +35,21 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+    
+
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = '__all__'
+
+
+class BannerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Banner
+        fields = '__all__'
+
+
+class WishListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WishList
+        fields = '__all__'
