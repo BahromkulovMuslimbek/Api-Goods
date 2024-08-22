@@ -6,8 +6,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from goods.models import Product, Category, Cart, Banner, ProductImg, WishList
-from .serializers import ProductSerializer, CategorySerializer, UserSerializer, CartSerializer, BannerSerializer, ProductImgSerializer, WishListSerializer
+from goods.models import Product, Category, Cart, Banner, ProductImg, WishList, Info, Order, CartProduct, ProductEnter
+from .serializers import ProductSerializer, CategorySerializer, UserSerializer, CartSerializer, BannerSerializer, ProductImgSerializer, WishListSerializer, InfoSerializer, OrderSerializer, CartProductSerializer, ProductEnterSerializer
 
 
 class CategoryCreateAPIView(generics.CreateAPIView):
@@ -48,6 +48,126 @@ class ProductListAPIView(generics.ListAPIView):
 class ProductDetailAPIView(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+
+class BannerListCreateView(generics.ListCreateAPIView):
+    queryset = Banner.objects.all()
+    serializer_class = BannerSerializer
+
+
+class BannerDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Banner.objects.all()
+    serializer_class = BannerSerializer
+
+
+class BannerCreateView(generics.CreateAPIView):
+    queryset = Banner.objects.all()
+    serializer_class = BannerSerializer
+
+
+class BannerDeleteView(generics.DestroyAPIView):
+    queryset = Banner.objects.all()
+    serializer_class = BannerSerializer
+
+
+class InfoListCreateView(generics.ListCreateAPIView):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
+
+
+class InfoDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
+
+
+class InfoCreateView(generics.CreateAPIView):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
+
+
+class InfoDeleteView(generics.DestroyAPIView):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
+
+
+class OrderListCreateView(generics.ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+class OrderCreateView(generics.CreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+class OrderDeleteView(generics.DestroyAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+class CartProductListCreateView(generics.ListCreateAPIView):
+    queryset = CartProduct.objects.all()
+    serializer_class = CartProductSerializer
+
+
+class CartProductDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CartProduct.objects.all()
+    serializer_class = CartProductSerializer
+
+
+class CartProductCreateView(generics.CreateAPIView):
+    queryset = CartProduct.objects.all()
+    serializer_class = CartProductSerializer
+
+
+class CartProductDeleteView(generics.DestroyAPIView):
+    queryset = CartProduct.objects.all()
+    serializer_class = CartProductSerializer
+
+
+class ProductEnterListCreateView(generics.ListCreateAPIView):
+    queryset = ProductEnter.objects.all()
+    serializer_class = ProductEnterSerializer
+
+
+class ProductEnterDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductEnter.objects.all()
+    serializer_class = ProductEnterSerializer
+
+
+class ProductEnterCreateView(generics.CreateAPIView):
+    queryset = ProductEnter.objects.all()
+    serializer_class = ProductEnterSerializer
+
+
+class ProductEnterDeleteView(generics.DestroyAPIView):
+    queryset = ProductEnter.objects.all()
+    serializer_class = ProductEnterSerializer
+
+
+class WishListListCreateView(generics.ListCreateAPIView):
+    queryset = WishList.objects.all()
+    serializer_class = WishListSerializer
+
+
+class WishListDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = WishList.objects.all()
+    serializer_class = WishListSerializer
+
+
+class WishListCreateView(generics.CreateAPIView):
+    queryset = WishList.objects.all()
+    serializer_class = WishListSerializer
+
+
+class WishListDeleteView(generics.DestroyAPIView):
+    queryset = WishList.objects.all()
+    serializer_class = WishListSerializer
 
 
 @api_view(['POST'])
